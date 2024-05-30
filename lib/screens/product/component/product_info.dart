@@ -97,7 +97,8 @@ class _ProductInfoState extends State<ProductInfo> {
         Text(
           widget.productData.title!,
           style: TextStyle(
-            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
             color: Colors.white,
           ),
         ),

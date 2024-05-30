@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/notif_service.dart';
 import 'package:proyek/screens/home/home_page.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,10 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
   @override
   void initState() {
     super.initState();
+    // Send notification
+    _showNotification();
+    Noti.showBigTextNotification(title: "title", body: "body", fln: flutterLocalNotificationsPlugin);
+
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 3),
@@ -32,9 +37,6 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
 
     // Start the animation to update the progress value from 0.0 to 1.0
     _animationController.forward();
-
-    // Send notification
-    _showNotification();
   }
 
   @override
@@ -167,8 +169,8 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
   Future<void> _showNotification() async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
     AndroidNotificationDetails(
-      'your_channel_id',
-      'your_channel_name',
+      'channel_id',
+      'channel_name',
       channelDescription: 'your_channel_description',
       importance: Importance.max,
       priority: Priority.high,

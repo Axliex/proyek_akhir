@@ -86,8 +86,8 @@ class _ProductItemState extends State<ProductItem> {
               ),
               child: Image.network(
                 widget.productData.image!,
-                width: 150,
-                height: 200, // Fixed height for the image
+                width: 140,
+                height: 140, // Fixed height for the image
                 fit: BoxFit.cover,
               ),
             ),
