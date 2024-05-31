@@ -1,8 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:proyek/models/wishlist.dart';
 import 'cart.dart';
-
-part 'user.g.dart'; // Generated file
+part 'user.g.dart';
 
 @HiveType(typeId: 2)
 class User extends HiveObject {

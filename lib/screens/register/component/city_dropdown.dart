@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class CityDropdown extends StatefulWidget {
   final String selectedCity;
@@ -17,13 +18,13 @@ class _CityDropdownState extends State<CityDropdown> {
       value: widget.selectedCity,
       decoration: InputDecoration(
         labelText: 'City',
-        labelStyle: TextStyle(color: Color(0xFF6200EE)),
+        labelStyle: TextStyle(color: ColorPallete.accentColor),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFF6200EE)),
+          borderSide: BorderSide(color: ColorPallete.accentColor),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFF6200EE)),
+          borderSide: BorderSide(color: ColorPallete.accentColor),
           borderRadius: BorderRadius.circular(8),
         ),
       ),

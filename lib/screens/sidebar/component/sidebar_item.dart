@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class SidebarItem extends StatelessWidget {
   final IconData icon;
@@ -15,8 +16,8 @@ class SidebarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, color: Colors.deepPurple),
-      title: Text(text, style: TextStyle(color: Colors.deepPurple)),
+      leading: Icon(icon, color: ColorPallete.baseColor),
+      title: Text(text, style: TextStyle(color: ColorPallete.baseColor)),
       onTap: onTap,
     );
   }

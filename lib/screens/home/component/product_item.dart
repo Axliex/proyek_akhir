@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../models/product_model.dart';
 import '../../product/product_page.dart';
@@ -55,17 +56,17 @@ class _ProductItemState extends State<ProductItem> {
 
     return Container(
       width: 150,
-      height: 305, // Menentukan tinggi tetap untuk Container
-      margin: EdgeInsets.all(8.0),
+      height: 350,
+      margin: EdgeInsets.all(0.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.0), // Rounded corners
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: ColorPallete.accentColor.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: Offset(0, 3),
           ),
         ],
       ),
@@ -101,7 +102,7 @@ class _ProductItemState extends State<ProductItem> {
                     widget.productData.title!.length > 20
                         ? widget.productData.title!.substring(0, 20) + "..."
                         : widget.productData.title!,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     _formatPrice(convertedPrice), // Display converted price

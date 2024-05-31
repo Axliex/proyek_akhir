@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/screens/login/login_page.dart';
 import '../../controllers/register_controller.dart';
 import 'component/custom_text_field.dart';
@@ -62,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF6200EE),
+      backgroundColor: ColorPallete.baseColor,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -74,15 +75,15 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: 20,
                 ),
                 Icon(
-                  Icons.ac_unit,
+                  Icons.emoji_people,
                   size: 100,
-                  color: Colors.white,
+                  color: ColorPallete.accentColor,
                 ),
                 SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: ColorPallete.whiteColor,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -148,14 +149,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                   child: Text(
                     'Register',
-                    style: TextStyle(color: Color(0xFF6200EE)),
+                    style: TextStyle(color: ColorPallete.whiteColor),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorPallete.accentColor,
                     minimumSize: Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(color: Color(0xFF6200EE)),
                     ),
                   ),
                 ),
@@ -171,14 +171,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                   child: Text(
                     'Back to Login',
-                    style: TextStyle(color: Color(0xFF6200EE)),
+                    style: TextStyle(color: ColorPallete.accentColor),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorPallete.whiteColor,
                     minimumSize: Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(color: Color(0xFF6200EE)),
+                      side: BorderSide(color: ColorPallete.accentColor),
                     ),
                   ),
                 ),

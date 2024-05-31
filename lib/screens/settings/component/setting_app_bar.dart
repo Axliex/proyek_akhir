@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class SettingAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onPressed;
@@ -11,14 +12,14 @@ class SettingAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorPallete.baseColor,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
+        icon: Icon(Icons.arrow_back, color: ColorPallete.accentColor),
         onPressed: onPressed,
       ),
       title: Text(
         'Setting',
-        style: TextStyle(color: Colors.deepPurple),
+        style: TextStyle(color: ColorPallete.whiteColor),
       ),
     );
   }

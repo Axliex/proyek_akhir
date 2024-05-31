@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/screens/home/home_page.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,7 +41,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: ColorPallete.baseColor,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -51,7 +52,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
               Icon(
                 Icons.terrain,
                 size: 100,
-                color: Colors.white,
+                color: ColorPallete.accentColor,
               ),
               SizedBox(height: 20),
               // Order status text
@@ -59,7 +60,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
                 'Your Order\nis On The Way',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: ColorPallete.whiteColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -69,7 +70,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
               Icon(
                 Icons.delivery_dining,
                 size: 100,
-                color: Colors.white,
+                color: ColorPallete.accentColor,
               ),
               SizedBox(height: 20),
               // Progress bar
@@ -77,8 +78,8 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
                 animation: _animationController,
                 builder: (BuildContext context, Widget? child) {
                   return LinearProgressIndicator(
-                    backgroundColor: Colors.white.withOpacity(0.3),
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    backgroundColor: ColorPallete.whiteColor.withOpacity(0.3),
+                    valueColor: AlwaysStoppedAnimation<Color>(ColorPallete.whiteColor),
                   );
                 },
               ),
@@ -87,7 +88,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
               Text(
                 'Total : ${widget.totalHarga}', // Display total price here
                 style: TextStyle(
-                  color: Colors.white,
+                  color: ColorPallete.whiteColor,
                   fontSize: 18,
                 ),
               ),
@@ -97,7 +98,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
                 'Estimated arrive on:\n${_formatFlaggedTime(widget.flaggedTime)}', // Display formatted flagged time here
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: ColorPallete.whiteColor,
                   fontSize: 18,
                 ),
               ),
@@ -105,8 +106,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
               // Back to Home button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.deepPurple,
+                  backgroundColor: ColorPallete.accentColor,
                   padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
@@ -122,6 +122,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
                 child: Text(
                   'Back to Home',
                   style: TextStyle(
+                    color: ColorPallete.baseColor,
                     fontSize: 18,
                   ),
                 ),
@@ -145,7 +146,6 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
 
   Future<void> _clearCart() async {
     var userBox = await Hive.openBox<User>('userBox');
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int? accIndex = prefs.getInt("accIndex");
 
@@ -159,8 +159,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> with SingleTicker
     }
     if (user != null) {
       user!.carts.clear();
-      // You might want to save the updated user object back to Hive here
-      setState(() {}); // Trigger a rebuild to reflect the cleared cart
+      setState(() {});
     }
   }
 

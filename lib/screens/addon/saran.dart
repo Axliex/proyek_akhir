@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class PesanPage extends StatelessWidget {
   @override
@@ -6,18 +7,18 @@ class PesanPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
+          icon: Icon(Icons.arrow_back, color: ColorPallete.accentColor),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         title: Text(
           'Pesan Kesan',
-          style: TextStyle(color: Colors.deepPurple),
+          style: TextStyle(color: ColorPallete.whiteColor),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: ColorPallete.baseColor,
         iconTheme: IconThemeData(
-          color: Colors.deepPurple,
+          color: ColorPallete.accentColor,
         ),
       ),
       body: Center(
@@ -25,7 +26,7 @@ class PesanPage extends StatelessWidget {
           width: 300,
           padding: EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: ColorPallete.whiteColor,
             borderRadius: BorderRadius.circular(16.0),
             boxShadow: [
               BoxShadow(
@@ -35,16 +36,18 @@ class PesanPage extends StatelessWidget {
             ],
           ),
           child: Text(
-            'kesan saya selama belajar pemrograman ini adalah lorem 50 jndjia wbjdwa',
+            'kesan saya selama belajar pemrograman mobile ini adalah mata kuliah ini sangat'
+                'menyenangkan karena dapat melakukan desain yang menurut saya lebih seru daripada pemrograman web'
+                'walaupun bahasanya sedikit lebih sulit dari pemrograman web dan lebih berat daripada web',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.deepPurple,
-              fontSize: 18.0,
+              color: ColorPallete.accentColor,
+              fontSize: 20.0,
             ),
           ),
         ),
       ),
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: ColorPallete.baseColor,
     );
   }
 }

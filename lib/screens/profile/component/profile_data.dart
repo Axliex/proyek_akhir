@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../models/user.dart';
 import 'profile_avatar.dart';
@@ -40,7 +41,7 @@ class _ProfileDataState extends State<ProfileData> {
     return currentUser == null
         ? Center(child: CircularProgressIndicator())
         : Container(
-      color: Colors.deepPurple,
+      color: ColorPallete.baseColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -49,7 +50,7 @@ class _ProfileDataState extends State<ProfileData> {
             SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: ColorPallete.whiteColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: EdgeInsets.all(16),

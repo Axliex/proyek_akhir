@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../controllers/profile_controller.dart';
 import '../../models/user.dart';
@@ -81,10 +82,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Color(0xFF6200EE),
+        iconTheme: IconThemeData(color: ColorPallete.accentColor),
+        backgroundColor: ColorPallete.baseColor,
       ),
-      backgroundColor: Color(0xFF6200EE),
+      backgroundColor: ColorPallete.baseColor,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -96,13 +97,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 Icon(
                   Icons.person,
                   size: 100,
-                  color: Colors.white,
+                  color: ColorPallete.baseColor,
                 ),
                 SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: ColorPallete.whiteColor,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -159,14 +160,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   },
                   child: Text(
                     'Update Profile',
-                    style: TextStyle(color: Color(0xFF6200EE)),
+                    style: TextStyle(color: ColorPallete.baseColor),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: ColorPallete.whiteColor,
                     minimumSize: Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(color: Color(0xFF6200EE)),
+                      side: BorderSide(color: ColorPallete.baseColor),
                     ),
                   ),
                 ),

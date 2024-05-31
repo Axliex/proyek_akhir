@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/screens/profile/edit_profile_page.dart';
 
 class ProfileEditButton extends StatelessWidget {
@@ -18,8 +19,8 @@ class ProfileEditButton extends StatelessWidget {
         );
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-        side: BorderSide(color: Colors.deepPurple, width: 2),
+        backgroundColor: ColorPallete.baseColor,
+        side: BorderSide(color: ColorPallete.baseColor, width: 2),
         minimumSize: Size(double.infinity, 50),
         padding: EdgeInsets.symmetric(vertical: 15),
         shape: RoundedRectangleBorder(
@@ -28,7 +29,7 @@ class ProfileEditButton extends StatelessWidget {
       ),
       child: Text(
         'Edit Profile',
-        style: TextStyle(color: Colors.deepPurple),
+        style: TextStyle(color: ColorPallete.accentColor),
       ),
     );
   }

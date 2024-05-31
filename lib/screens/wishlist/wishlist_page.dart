@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/user.dart';
 import 'component/wishlist_item.dart';
@@ -50,7 +51,7 @@ class _WishlistPageState extends State<WishlistPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.deepPurple),
+          icon: Icon(Icons.menu, color: ColorPallete.accentColor),
           onPressed: () {
             Navigator.push(
               context,
@@ -58,28 +59,21 @@ class _WishlistPageState extends State<WishlistPage> {
             );
           },
         ),
-        title: Text('Wishlist', style: TextStyle(color: Colors.deepPurple)),
+        title: Text('Wishlist', style: TextStyle(color: ColorPallete.whiteColor,fontWeight: FontWeight.bold)),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart, color: Colors.deepPurple),
+            icon: Icon(Icons.shopping_cart, color: ColorPallete.accentColor),
             onPressed: () {},
           )
         ],
+        backgroundColor: ColorPallete.baseColor,
       ),
       body: Container(
-        color: Colors.deepPurple,
+        color: ColorPallete.baseColor,
         child: ListView.builder(
           itemCount: wishlistItems.length,
           itemBuilder: (context, index) {
             return GestureDetector(
-              // onTap: () {
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //       builder: (context) => ProductPage(productData: wishlistItems[index]), // Pass wishlist item to ProductPage
-              //     ),
-              //   );
-              // },
               child: WishlistItem(
                 wishlistItem: wishlistItems[index],
                 onRemove: () => _removeItemFromList(wishlistItems[index]),
@@ -89,6 +83,9 @@ class _WishlistPageState extends State<WishlistPage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: ColorPallete.accentColor,
+        selectedItemColor: ColorPallete.baseColor,
+        unselectedItemColor: ColorPallete.whiteColor,
         currentIndex: _selectedIndex,
         onTap: (int index) {
           setState(() {

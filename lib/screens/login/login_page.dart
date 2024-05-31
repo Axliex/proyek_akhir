@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/screens/home/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'component/login_header.dart';
@@ -33,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: ColorPallete.baseColor,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

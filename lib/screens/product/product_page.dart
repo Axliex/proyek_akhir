@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import '../../models/product_model.dart';
 import 'component/product_action.dart';
 import 'component/product_app_bar.dart';
@@ -15,7 +16,7 @@ class ProductPage extends StatelessWidget {
       appBar: ProductAppBar(),
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.deepPurple,
+          color: ColorPallete.baseColor,
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

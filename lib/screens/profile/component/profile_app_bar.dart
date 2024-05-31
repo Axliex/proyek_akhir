@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -10,14 +11,15 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text('Profile'),
       centerTitle: true,
-      actions: [
-        IconButton(
-          icon: Icon(Icons.delete),
-          onPressed: () {
-            // Add your onPressed code here!
-          },
-        ),
-      ],
+      // actions: [
+      //   // IconButton(
+      //   //   icon: Icon(Icons.delete),
+      //   //   onPressed: () {
+      //   //     // Add your onPressed code here!
+      //   //   },
+      //   // ),
+      // ],
+      backgroundColor: ColorPallete.baseColor,
     );
   }
 

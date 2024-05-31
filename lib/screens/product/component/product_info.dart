@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../models/product_model.dart';
 import 'product_favorite.dart';
@@ -65,9 +66,9 @@ class _ProductInfoState extends State<ProductInfo> {
       children: [
         SingleChildScrollView(
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(16.0), // Rounded corners
+            borderRadius: BorderRadius.circular(16.0),
             child: Container(
-              color: Colors.grey[300],
+              color: ColorPallete.accentColor,
               child: Center(child: Image.network(widget.productData.image!)),
             ),
           ),
@@ -78,8 +79,7 @@ class _ProductInfoState extends State<ProductInfo> {
               _formatPrice(convertedPrice),
               style: TextStyle(
                 fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white, // Text color
+                color: ColorPallete.whiteColor, // Text color
               ),
             ),
             Spacer(),
@@ -97,8 +97,9 @@ class _ProductInfoState extends State<ProductInfo> {
         Text(
           widget.productData.title!,
           style: TextStyle(
-            fontSize: 18.0,
-            color: Colors.white,
+            fontSize: 24.0,
+            color: ColorPallete.accentColor,
+            fontWeight: FontWeight.bold
           ),
         ),
         SizedBox(height: 8.0),
@@ -106,7 +107,7 @@ class _ProductInfoState extends State<ProductInfo> {
           widget.productData.description!,
           style: TextStyle(
             fontSize: 16.0,
-            color: Colors.white,
+            color: ColorPallete.whiteColor,
           ),
         ),
       ],

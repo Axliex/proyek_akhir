@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../models/user.dart';
@@ -36,13 +37,27 @@ class _UserInfoState extends State<UserInfo> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-          radius: 60.0,
-          backgroundColor: Colors.white,
-          // child: Image.file(File(currentUser!.avatar!)),
+        Container(
+          width: 120.0,
+          height: 120.0,
+          decoration: BoxDecoration(
+            color: ColorPallete.whiteColor,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
           child: currentUser!.avatar == ''
-              ? Icon(Icons.person, size: 100,)
-              : Image.file(File(currentUser!.avatar!)),
+              ? Icon(
+            Icons.person,
+            size: 100,
+          )
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.file(
+              File(currentUser!.avatar!),
+              fit: BoxFit.cover,
+              width: 120.0,
+              height: 120.0,
+            ),
+          ),
         ),
         SizedBox(width: 20.0),
         Column(
@@ -50,11 +65,11 @@ class _UserInfoState extends State<UserInfo> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(currentUser!.name,
-                style: TextStyle(color: Colors.white, fontSize: 20.0)),
+                style: TextStyle(color: ColorPallete.whiteColor, fontSize: 20.0)),
             SizedBox(height: 8.0),
-            Text(currentUser!.phone, style: TextStyle(color: Colors.white)),
+            Text(currentUser!.phone, style: TextStyle(color: ColorPallete.whiteColor)),
             SizedBox(height: 4.0),
-            Text(currentUser!.email, style: TextStyle(color: Colors.white)),
+            Text(currentUser!.email, style: TextStyle(color: ColorPallete.whiteColor)),
           ],
         ),
       ],

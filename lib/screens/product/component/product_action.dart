@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../models/cart.dart';
@@ -78,7 +79,7 @@ class _ProductActionsState extends State<ProductActions> {
     double convertedPrice = _convertCurrency(widget.productData.price!.toDouble());
 
     return SizedBox(
-      height: 60.0, // Height of the button
+      height: 60.0,
       child: ElevatedButton(
         onPressed: () {
           showDialog(
@@ -101,11 +102,13 @@ class _ProductActionsState extends State<ProductActions> {
           );
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white, // Background color of the button
-          foregroundColor: Colors.purple, // Text color of the button
+          backgroundColor: ColorPallete.accentColor,
+          foregroundColor: ColorPallete.whiteColor,
           textStyle: TextStyle(fontSize: 18.0),
         ),
-        child: Text('Add to Cart'),
+        child: Text('Add to Cart',
+        style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }

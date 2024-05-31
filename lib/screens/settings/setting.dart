@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../clock/digital_clock.dart';
 import 'component/currency_dropdown.dart';
@@ -72,7 +73,7 @@ class _SettingPageState extends State<SettingPage> {
               constraints: BoxConstraints(minHeight: 30.0),
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: ColorPallete.whiteColor,
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Column(
@@ -86,7 +87,7 @@ class _SettingPageState extends State<SettingPage> {
           ],
         ),
       ),
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: ColorPallete.baseColor,
     );
   }
 }

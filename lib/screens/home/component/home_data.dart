@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/models/product_model.dart';
 import 'package:proyek/screens/home/component/product_item.dart';
 import '../../../models/api_data_souce.dart';
@@ -31,13 +32,6 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
     searchController.addListener(_filterProducts);
   }
 
-  // @override
-  // void dispose() {
-  //   searchController.removeListener(_filterProducts);
-  //   searchController.dispose();
-  //   super.dispose();
-  // }
-
   void _filterProducts() {
     final query = searchController.text.toLowerCase();
     setState(() {
@@ -54,7 +48,7 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurple,
+      color: Color(0xFFFD746C),
       child: FutureBuilder(
         future: ApiDataSource.instance.loadCategory(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -114,7 +108,7 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: ColorPallete.whiteColor,
             ),
           ),
         ),
@@ -126,32 +120,38 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
           physics: NeverScrollableScrollPhysics(),
           children: [
             CategoryItem(
-              icon: Icons.tv_outlined,
+              icon: Icons.snowshoeing_sharp,
+              iconSize: 30,
               label: categoryData.categories![0].toUpperCase(),
               categoryName: categoryData.categories![0],
             ),
             CategoryItem(
-              icon: Icons.speaker_group_outlined,
+              icon: Icons.sports_soccer,
+              iconSize: 30,
               label: categoryData.categories![1].toUpperCase(),
               categoryName: categoryData.categories![1],
             ),
             CategoryItem(
-              icon: Icons.laptop_mac_outlined,
+              icon: Icons.shopping_bag_rounded,
+              iconSize: 30,
               label: categoryData.categories![2].toUpperCase(),
               categoryName: categoryData.categories![2],
             ),
             CategoryItem(
-              icon: Icons.phone_android_outlined,
+              icon: Icons.checkroom,
+              iconSize: 30,
               label: categoryData.categories![3].toUpperCase(),
               categoryName: categoryData.categories![3],
             ),
             CategoryItem(
-              icon: Icons.videogame_asset,
+              icon: Icons.fitness_center,
+              iconSize: 30,
               label: categoryData.categories![4].toUpperCase(),
               categoryName: categoryData.categories![4],
             ),
             CategoryItem(
-              icon: Icons.table_restaurant_rounded,
+              icon: Icons.emoji_people,
+              iconSize: 30,
               label: categoryData.categories![5].toUpperCase(),
               categoryName: categoryData.categories![5],
             ),
@@ -163,20 +163,20 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
             controller: searchController,
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.white,
-              prefixIcon: Icon(Icons.search, color: Colors.deepPurple),
+              fillColor: ColorPallete.whiteColor,
+              prefixIcon: Icon(Icons.search, color: ColorPallete.accentColor),
               hintText: 'Search',
-              hintStyle: TextStyle(color: Colors.deepPurple),
+              hintStyle: TextStyle(color: ColorPallete.accentColor),
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple),
+                borderSide: BorderSide(color: ColorPallete.accentColor),
                 borderRadius: BorderRadius.circular(30.0),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)),
+                borderSide: BorderSide(color: ColorPallete.accentColor),
                 borderRadius: BorderRadius.circular(30),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)),
+                borderSide: BorderSide(color: ColorPallete.accentColor),
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
@@ -192,7 +192,7 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: ColorPallete.whiteColor,
                 ),
               ),
               TextButton(
@@ -203,10 +203,10 @@ class _HomeCategoryDataState extends State<HomeCategoryData> {
                 },
                 child: Text(
                   showAll ? 'Show Less' : 'Show All',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: ColorPallete.whiteColor),
                 ),
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.deepPurpleAccent,
+                  backgroundColor: ColorPallete.accentColor,
                   padding:
                   EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 ),

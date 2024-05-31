@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/models/product_model.dart';
 import 'package:proyek/screens/home/component/product_item.dart';
 
@@ -11,7 +12,7 @@ class ProductCategoryData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurple,
+      color: ColorPallete.baseColor,
       child: FutureBuilder(
         future: ApiDataSource.instance.loadProductsByCategory(categoryName),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -44,7 +45,6 @@ class ProductCategoryData extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        // Menyusun children dari Column ke kiri
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -66,13 +66,12 @@ class ProductCategoryData extends StatelessWidget {
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // Jumlah kolom
-              crossAxisSpacing: 8.0, // Jarak horizontal antar kolom
-              mainAxisSpacing: 8.0, // Jarak vertikal antar baris
-              childAspectRatio: 0.75, // Rasio aspek untuk menyesuaikan tinggi dan lebar item grid
+              crossAxisCount: 2,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
+              childAspectRatio: 0.75,
             ),
             itemCount: productsData.products!.length,
-            // Mengatur jumlah produk berdasarkan status showAll
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),

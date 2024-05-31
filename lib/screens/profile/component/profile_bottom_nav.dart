@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../controllers/colorpalette.dart';
+
 class ProfileBottomNav extends StatefulWidget {
   final int selectedIndex;
   final Function(int) onItemTapped;
@@ -33,8 +35,9 @@ class _ProfileBottomNavState extends State<ProfileBottomNav> {
         ),
       ],
       currentIndex: widget.selectedIndex,
-      selectedItemColor: Colors.deepPurple,
-      unselectedItemColor: Colors.grey,
+      backgroundColor: ColorPallete.accentColor,
+      selectedItemColor: ColorPallete.baseColor,
+      unselectedItemColor: ColorPallete.whiteColor,
       onTap: (index) {
         widget.onItemTapped(index);
         if (index == 0) {

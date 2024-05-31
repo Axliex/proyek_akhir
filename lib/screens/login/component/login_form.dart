@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import '../../../controllers/login_controller.dart';
 import '../../home/home_page.dart';
 
@@ -12,7 +13,7 @@ class LoginForm extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: ColorPallete.whiteColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -21,17 +22,17 @@ class LoginForm extends StatelessWidget {
             controller: emailController,
             decoration: InputDecoration(
               labelText: 'Email',
-              labelStyle: TextStyle(color: Color(0xFF6200EE)),
+              labelStyle: TextStyle(color: ColorPallete.accentColor),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)), // Warna outline ungu
+                borderSide: BorderSide(color: ColorPallete.accentColor), // Warna outline ungu
                 borderRadius: BorderRadius.circular(8),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)), // Warna outline ungu saat fokus
+                borderSide: BorderSide(color: ColorPallete.accentColor), // Warna outline ungu saat fokus
                 borderRadius: BorderRadius.circular(8),
               ),
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)), // Warna outline default
+                borderSide: BorderSide(color: ColorPallete.accentColor), // Warna outline default
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
@@ -41,17 +42,17 @@ class LoginForm extends StatelessWidget {
             controller: passwordController,
             decoration: InputDecoration(
               labelText: 'Password',
-              labelStyle: TextStyle(color: Color(0xFF6200EE)),
+              labelStyle: TextStyle(color: ColorPallete.accentColor),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)), // Warna outline ungu
+                borderSide: BorderSide(color: ColorPallete.accentColor), // Warna outline ungu
                 borderRadius: BorderRadius.circular(8),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)), // Warna outline ungu saat fokus
+                borderSide: BorderSide(color: ColorPallete.accentColor), // Warna outline ungu saat fokus
                 borderRadius: BorderRadius.circular(8),
               ),
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF6200EE)), // Warna outline default
+                borderSide: BorderSide(color: ColorPallete.accentColor), // Warna outline default
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
@@ -65,10 +66,12 @@ class LoginForm extends StatelessWidget {
             },
             child: Text(
               'LOGIN',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(
+                  color: ColorPallete.whiteColor,
+                  fontWeight: FontWeight.bold),
             ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF6200EE), // Warna tombol ungu
+              backgroundColor: ColorPallete.accentColor, // Warna tombol ungu
               minimumSize: Size(double.infinity, 50), // Lebar tombol penuh
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),

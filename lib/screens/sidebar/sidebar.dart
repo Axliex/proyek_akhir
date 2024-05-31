@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/screens/addon/saran.dart';
 import 'package:proyek/screens/login/login_page.dart';
 import 'package:proyek/screens/settings/setting.dart';
@@ -22,7 +23,7 @@ class Sidebar extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.deepPurple,
+              color: ColorPallete.baseColor,
             ),
             child: UserInfo(),
           ),

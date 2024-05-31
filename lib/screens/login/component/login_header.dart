@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class LoginHeader extends StatelessWidget {
   @override
@@ -6,24 +7,24 @@ class LoginHeader extends StatelessWidget {
     return Column(
       children: [
         Icon(
-          Icons.ac_unit, // Ganti dengan logo Anda
+          Icons.emoji_people, // Ganti dengan logo Anda
           size: 100,
-          color: Colors.white,
+          color: ColorPallete.accentColor,
         ),
         SizedBox(height: 20),
         Text(
           'Welcome Back',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 24,
+            color: ColorPallete.accentColor,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           'Sign in to continue',
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 16,
+            color: ColorPallete.whiteColor,
+            fontSize: 18,
           ),
         ),
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class SidebarAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onPressed;
@@ -11,9 +12,9 @@ class SidebarAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: ColorPallete.baseColor,
       leading: IconButton(
-        icon: Icon(Icons.menu, color: Colors.white),
+        icon: Icon(Icons.menu, color: ColorPallete.accentColor),
         onPressed: onPressed,
       ),
     );

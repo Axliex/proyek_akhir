@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 
 class ProfileDetail extends StatelessWidget {
   final String title;
@@ -14,7 +15,7 @@ class ProfileDetail extends StatelessWidget {
         children: [
           Text(
             '$title : ',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple),
+            style: TextStyle(fontWeight: FontWeight.bold, color: ColorPallete.accentColor),
           ),
           Text(value),
         ],

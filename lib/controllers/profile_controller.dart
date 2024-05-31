@@ -16,7 +16,6 @@ class ProfileController {
     try {
       final userBox = await Hive.openBox<User>('userBox');
 
-      // Fetch the user by email
       final user = userBox.values.firstWhere(
             (user) => user.email == email,
         orElse: () => User('', '', '', '', '', '',[],[], ''),
@@ -29,9 +28,6 @@ class ProfileController {
         user.phone = phone;
 
         await user.save();
-
-        print('Profile updated successfully.');
-
         Navigator.of(context).pop();
       } else {
         print('User with email $email not found.');

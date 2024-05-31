@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'dart:io';
 
 import 'package:proyek/controllers/profile_controller.dart';
@@ -74,7 +75,7 @@ class _ProfileAvatarState extends State<ProfileAvatar> {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 90,
-      backgroundColor: Colors.grey,
+      backgroundColor: ColorPallete.whiteColor,
       child: Stack(
         children: [
           Align(
@@ -97,10 +98,10 @@ class _ProfileAvatarState extends State<ProfileAvatar> {
             alignment: Alignment.bottomRight,
             child: CircleAvatar(
               radius: 30,
-              backgroundColor: Colors.white,
+              backgroundColor: ColorPallete.whiteColor,
               child: IconButton(
                 icon: Icon(Icons.edit),
-                color: Colors.deepPurple,
+                color: ColorPallete.accentColor,
                 iconSize: 20,
                 onPressed: _pickImage,
               ),

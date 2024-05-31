@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart'; // Import SharedPreferences
 import '../../../models/product_model.dart';
 import '../../../models/wishlist.dart';
@@ -92,7 +93,7 @@ class _ProductFavoriteState extends State<ProductFavorite> {
     return IconButton(
       icon: Icon(
         isFavorited ? Icons.favorite : Icons.favorite_border,
-        color: isFavorited ? Colors.red : Colors.white,
+        color: isFavorited ? ColorPallete.accentColor : ColorPallete.whiteColor,
       ),
       onPressed: () {
         _toggleFavorite();

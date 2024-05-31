@@ -14,7 +14,6 @@ class RegisterController {
     final usersBox = await Hive.openBox<User>('userBox');
     registerData = await SharedPreferences.getInstance();
 
-    // Check if email already exists
     final userExists = usersBox.values.any((user) => user.email == email);
     if (userExists) {
       print('Email already exists!');
@@ -54,7 +53,6 @@ class RegisterController {
 
     await usersBox.add(newUser);
 
-    // registerData = await SharedPreferences.getInstance();
     int userCount = usersBox.length;
     await registerData.setInt("accIndex", userCount-1);
     await registerData.setBool("logedIn", true);
@@ -65,7 +63,6 @@ class RegisterController {
           'Name: ${user.name}, Email: ${user.email}, City: ${user.city}, Address: ${user.address}, Phone: ${user.phone}, Password: ${user.password}');
     }
 
-    // Lanjutkan ke halaman login
     await Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),

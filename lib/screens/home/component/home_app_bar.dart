@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/screens/cart/cart_page.dart';
 import '../../sidebar/sidebar.dart';
 
@@ -13,16 +14,16 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor:ColorPallete.baseColor,
       leading: isProductByCategory
           ? IconButton(
-        icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
+        icon: Icon(Icons.arrow_back, color: ColorPallete.accentColor),
         onPressed: () {
           Navigator.pop(context);
         },
       )
           : IconButton(
-        icon: Icon(Icons.menu, color: Colors.deepPurple),
+        icon: Icon(Icons.menu, color: ColorPallete.accentColor),
         onPressed: () {
           Navigator.push(
             context,
@@ -34,35 +35,13 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         width: double.infinity,
         height: 40,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: ColorPallete.baseColor,
           borderRadius: BorderRadius.circular(5),
-        ),
-        child: Center(
-          child: Text("Shop"),
-          // child: TextField(
-          //   decoration: InputDecoration(
-          //     prefixIcon: Icon(Icons.search, color: Colors.deepPurple),
-          //     hintText: 'Search',
-          //     hintStyle: TextStyle(color: Colors.deepPurple),
-          //     border: OutlineInputBorder(
-          //       borderSide: BorderSide(color: Colors.deepPurple),
-          //       borderRadius: BorderRadius.circular(30.0),
-          //     ),
-          //     focusedBorder: OutlineInputBorder(
-          //       borderSide: BorderSide(color: Color(0xFF6200EE)),
-          //       borderRadius: BorderRadius.circular(30),
-          //     ),
-          //     enabledBorder: OutlineInputBorder(
-          //       borderSide: BorderSide(color: Color(0xFF6200EE)),
-          //       borderRadius: BorderRadius.circular(30),
-          //     ),
-          //   ),
-          // ),
         ),
       ),
       actions: [
         IconButton(
-          icon: Icon(Icons.shopping_cart, color: Colors.deepPurple),
+          icon: Icon(Icons.shopping_cart, color: ColorPallete.accentColor),
           onPressed: () {
             Navigator.push(
               context,

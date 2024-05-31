@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/product_model.dart';
 import '../../models/user.dart';
@@ -56,22 +56,24 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple, // Set background color to deep purple
+      backgroundColor: ColorPallete.baseColor, // Set background color to deep purple
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorPallete.baseColor,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.deepPurple),
+          icon: Icon(Icons.arrow_back, color: ColorPallete.accentColor),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         title: Text(
           'Cart',
-          style: TextStyle(color: Colors.deepPurple),
+          style: TextStyle(color: ColorPallete.whiteColor,
+            fontWeight: FontWeight.bold
+          ),
         ),
       ),
       body: Container(
-        color: Colors.deepPurple, // Ensure the background color is deep purple
+        color: ColorPallete.baseColor,
         child: user != null
             ? _buildCartList()
             : Center(
@@ -83,8 +85,7 @@ class _CartPageState extends State<CartPage> {
 
   Widget _buildCartList() {
     return Container(
-      color: Colors
-          .deepPurple, // Set the background color of the whole list to deep purple
+      color: ColorPallete.baseColor,
       child: Column(
         children: [
           Expanded(
@@ -95,16 +96,15 @@ class _CartPageState extends State<CartPage> {
                       final cartItem = user!.carts[index];
                       return Container(
                         decoration: BoxDecoration(
-                          color: Colors
-                              .white, // Set the background color of the product container to white
+                          color: ColorPallete.accentColor,
                           borderRadius:
-                              BorderRadius.circular(12), // Add rounded border
+                              BorderRadius.circular(12),
                         ),
                         margin: EdgeInsets.symmetric(
                             vertical: 8,
-                            horizontal: 16), // Add some margin for spacing
+                            horizontal: 16),
                         padding: EdgeInsets.all(
-                            16), // Add padding inside the container
+                            16),
                         child: Stack(
                           children: [
                             Column(
@@ -113,8 +113,7 @@ class _CartPageState extends State<CartPage> {
                                 Text(
                                   cartItem.name,
                                   style: TextStyle(
-                                    color: Colors
-                                        .deepPurple, // Set the text color to purple
+                                    color: ColorPallete.whiteColor,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -127,8 +126,7 @@ class _CartPageState extends State<CartPage> {
                                     Text(
                                       'Price: ${_formatPrice(_convertCurrency(cartItem.price))}',
                                       style: TextStyle(
-                                        color: Colors
-                                            .deepPurple, // Set the text color to purple
+                                        color: ColorPallete.whiteColor,
                                         fontSize: 14,
                                       ),
                                     ),
@@ -138,7 +136,8 @@ class _CartPageState extends State<CartPage> {
                                             context, index);
                                       },
                                       child: Icon(Icons.delete,
-                                          color: Colors.red, size: 16),
+                                          color: ColorPallete.whiteColor, size: 16
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -151,7 +150,7 @@ class _CartPageState extends State<CartPage> {
                   )
                 : Center(
                     child: Text('No items in cart',
-                        style: TextStyle(color: Colors.white))),
+                        style: TextStyle(color: ColorPallete.whiteColor))),
           ),
           SizedBox(height: 16),
           Padding(
@@ -164,21 +163,20 @@ class _CartPageState extends State<CartPage> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // Set the text color to white
+                    color: ColorPallete.whiteColor,
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () async {
                     await _checkout(
-                        context); // Call checkout function and wait for the dialog to close
+                        context);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors
-                        .white, // Set the background color of the button to white
-                    foregroundColor: Colors
-                        .deepPurple, // Set the text color of the button to purple
+                    backgroundColor: ColorPallete.accentColor,
+                    foregroundColor: ColorPallete.whiteColor,
                   ),
-                  child: Text('Checkout'),
+                  child: Text('Checkout',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
               ],
             ),
@@ -221,15 +219,12 @@ class _CartPageState extends State<CartPage> {
   }
 
   Future<void> _checkout(BuildContext context) async {
-    // Convert current time to selected time zone before adding to flaggedTimes
     DateTime flaggedTime =
         DateTime.now().toUtc().add(_getDuration(_selectedTimeZone));
     _flaggedTimes.add(flaggedTime);
 
-    // Call function to flag time according to selected timezone
     _flagTimeAccordingToTimeZone();
 
-    // Show a dialog with the total amount and a close button
     await showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -268,7 +263,7 @@ class _CartPageState extends State<CartPage> {
     Random random = Random();
     _flaggedTimes.forEach((time) {
       int randomMinutes =
-          random.nextInt(26) + 5; // Generate a random number between 5 and 30
+          random.nextInt(26) + 5;
       Duration randomDuration = Duration(minutes: randomMinutes);
       _flaggedTimes[_flaggedTimes.indexOf(time)] = time.add(randomDuration);
     });
@@ -288,7 +283,7 @@ class _CartPageState extends State<CartPage> {
       case 'UTC-5:00 New York':
         return Duration(hours: -5);
       default:
-        return Duration(hours: 0); // Default to UTC
+        return Duration(hours: 0);
     }
   }
 

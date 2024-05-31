@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:proyek/controllers/colorpalette.dart';
 import 'package:proyek/models/wishlist.dart';
 
 import '../../../models/user.dart';
@@ -35,6 +36,10 @@ class WishlistItem extends StatelessWidget {
               width: 150,
               height: 150,
               alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                borderRadius:
+                BorderRadius.circular(12),
+              ),
               child: Image.network(
                 wishlistItem.image,
                 fit: BoxFit.cover,
@@ -47,19 +52,24 @@ class WishlistItem extends StatelessWidget {
                 children: [
                   Text(
                     wishlistItem.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: ColorPallete.whiteColor
+                    ),
                   ),
                   SizedBox(height: 8.0),
                   Text(
                     '\$${wishlistItem.price.toStringAsFixed(2)}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: ColorPallete.whiteColor
                     ),
                   ),
                   SizedBox(height: 8.0),
                   Row(
                     children: [
                       IconButton(
-                        icon: Icon(Icons.favorite, color: Colors.deepPurple),
+                        icon: Icon(Icons.favorite, color: ColorPallete.baseColor),
                         onPressed: () => _removeFromWishlist(context, wishlistItem),
                       ),
                     ],
@@ -69,6 +79,7 @@ class WishlistItem extends StatelessWidget {
             ),
           ],
         ),
+        color: ColorPallete.accentColor,
       ),
     );
   }
